@@ -188,15 +188,18 @@ def candle(x, cy, bh, wt, wb, up, p, op=1.0, w=8, extra=""):
 
 # ---------------------------------------------------------------- hero
 NAMES = [
+    "claude-browse",
     "second-brain",
     "Zerodha-MCP-Trading",
     "stocky-ai",
     "openwispr",
     "continuum",
     "claude-code-harness",
+    "stocky-fun",
     "trade-nexus",
     "yomu",
     "seed-hunter",
+    "tldw",
 ]
 PHRASES = ["trading systems", "memory for AI agents", "on-device voice"]
 
@@ -215,7 +218,7 @@ def hero(p):
     s = Svg(
         1280,
         340,
-        "Charandeep Kapoor. Product at Delta Exchange. Trading systems, memory for AI agents, on-device voice.",
+        "Charandeep Kapoor. AI × Trading, 2× ex-founder, IIT Kanpur. Trading systems, memory for AI agents, on-device voice.",
         p,
     )
     C = 12.0
@@ -326,7 +329,7 @@ def hero(p):
     # text block
     s.add(T(64, 48, "~/SirCharan", 13, p["dim"], ls=1))
     s.add(T(64, 120, "Charandeep Kapoor", 56, p["fg"], 700, ls=-1))
-    s.add(T(64, 152, "PRODUCT · DELTA EXCHANGE · IIT KANPUR", 14, p["accent"], ls=2.4))
+    s.add(T(64, 152, "AI × TRADING · 2× EX-FOUNDER · IIT KANPUR", 14, p["accent"], ls=2.4))
     s.add(T(64, 200, "building", 24, p["muted"]))
     x0 = 64 + cw(9, 24)
     for k, ph in enumerate(PHRASES):
@@ -406,6 +409,11 @@ def hero(p):
 
 # ---------------------------------------------------------------- cards
 CARDS = {
+    "browse": (
+        "PYTHON",
+        "Give Claude a browser, keep chat light",
+        "Sonnet helper · short summaries back",
+    ),
     "second-brain": (
         "PYTHON",
         "Persistent memory for Claude Code",
@@ -416,6 +424,11 @@ CARDS = {
         "TYPESCRIPT",
         "Six-agent council, Indian markets",
         "stockyai.xyz · Telegram + FastAPI",
+    ),
+    "stocky-fun": (
+        "TYPESCRIPT",
+        "AI BTC signals, reasoning shown",
+        "fun.stockyai.xyz · paper trading",
     ),
     "openwispr": (
         "SWIFT",
@@ -430,6 +443,8 @@ CARDS = {
     ),
 }
 CARD_REPO = {
+    "browse": "claude-browse",
+    "stocky-fun": "stocky-fun",
     "second-brain": "second-brain",
     "zerodha": "Zerodha-MCP-Trading",
     "stocky": "stocky-ai",
@@ -438,6 +453,8 @@ CARD_REPO = {
     "harness": "claude-code-harness",
 }
 CARD_LABEL = {
+    "browse": "claude-browse. Give Claude a browser and keep the chat light. Animated page scan collapsing into a short summary.",
+    "stocky-fun": "stocky-fun. AI BTC signals with the reasoning shown. Animated price line, a LONG badge and typed reasoning.",
     "second-brain": "second-brain. Persistent memory for Claude Code. Animated graph of linked notes lighting up in sequence.",
     "zerodha": "Zerodha-MCP-Trading. An MCP server for Zerodha Kite. Animated candlesticks with an order-fill flash.",
     "stocky": "stocky-ai. A six-agent council for Indian markets. Animated dots converging into one verdict.",
@@ -800,7 +817,50 @@ def motif_harness(s, p):
     return "".join(out)
 
 
+def motif_browse(s, p):
+    C = 10.0
+    out = []
+    for i, c in enumerate((p["down"], p["accent"], p["up"])):
+        out.append('<circle cx="%d" cy="16" r="3" fill="%s" opacity="0.85"/>' % (16 + 12 * i, c))
+    out.append('<rect x="56" y="8" width="158" height="16" rx="4" fill="%s" stroke="%s"/>' % (p["bg2"], p["grid"]))
+    a = cw(1, 10)
+    for i, ch in enumerate("news.ycombinator.com"):
+        out.append(T(64 + a * i, 20, ch, 10, p["muted"], extra=s.rv(0.3 + i * 0.05, C, 9.0, 9.6, 0.05, ease="linear")))
+    out.append('<path d="M0 32.5 H230" stroke="%s"/>' % p["grid"])
+    for i, w in enumerate((150, 186, 120, 170)):
+        out.append('<rect x="16" y="%d" width="%d" height="6" rx="3" fill="%s" opacity="0.35" %s/>'
+                   % (44 + 12 * i, w, p["muted"], s.rv(1.4 + i * 0.15, C, 9.0, 9.6, 0.3)))
+    # scan bar: decoration only, hidden in the static frame
+    out.append('<rect x="12" y="40" width="206" height="2" rx="1" fill="%s" opacity="0" %s/>' % (
+        p["accent"], s.anim("0%%,%s%%{opacity:0;transform:translateY(0)}%s%%{opacity:.9}%s%%{opacity:.9;transform:translateY(48px)}%s%%,100%%{opacity:0;transform:translateY(48px)}"
+                            % (pct(2.2, C), pct(2.4, C), pct(3.8, C), pct(4.0, C)), C, "linear")))
+    out.append('<g %s><rect x="16" y="98" width="198" height="24" rx="6" fill="%s" fill-opacity="0.12" stroke="%s" stroke-opacity="0.5"/>%s%s</g>' % (
+        s.rv(4.2, C, 9.0, 9.6, 0.35, "transform:translateY(6px)", "transform:translateY(0)"),
+        p["accent"], p["accent"],
+        T(26, 114, "→", 11, p["accent"], 700),
+        T(26 + cw(2, 11), 114, "summary · 3 lines back", 11, p["fg"])))
+    return "".join(out)
+
+
+def motif_signal(s, p):
+    C = 10.0
+    ys = [52, 48, 50, 42, 45, 38, 40, 32, 35, 26, 28, 20]
+    pts = " L".join("%d,%d" % (16 + i * 11, y) for i, y in enumerate(ys))
+    out = ['<path d="M16 56.5 H140" stroke="%s"/>' % p["grid"],
+           '<path d="M%s" pathLength="1" fill="none" stroke="%s" stroke-width="2" stroke-linejoin="round" stroke-linecap="round" stroke-dasharray="1" %s/>'
+           % (pts, p["up"], s.anim("0%%{stroke-dashoffset:1}%s%%,100%%{stroke-dashoffset:0}" % pct(1.6, C), C, "ease-out")),
+           '<circle cx="137" cy="20" r="3" fill="%s"/>' % p["up"]]
+    out.append('<g %s><rect x="156" y="12" width="58" height="22" rx="6" fill="%s" fill-opacity="0.15" stroke="%s" stroke-opacity="0.6"/>%s</g>' % (
+        s.rv(1.8, C, 9.0, 9.6, 0.3, "transform:scale(.8)", "transform:scale(1)"),
+        p["up"], p["up"], T(185, 27, "LONG", 11, p["up"], 700, anchor="middle", ls=1.2)))
+    for k, (txt, col) in enumerate((("trend up on the 4h", p["muted"]), ("momentum confirms", p["muted"]), ("→ long, stop set", p["fg"]))):
+        out.append(T(16, 84 + 18 * k, txt, 11, col, extra=s.rv(2.6 + 0.9 * k, C, 9.0, 9.6, 0.35, "transform:translateX(-6px)", "transform:translateX(0)")))
+    return "".join(out)
+
+
 MOTIFS = {
+    "browse": motif_browse,
+    "stocky-fun": motif_signal,
     "second-brain": motif_graph,
     "zerodha": motif_zerodha,
     "stocky": motif_stocky,
@@ -841,7 +901,7 @@ def terminal(p):
     s = Svg(
         1280,
         272,
-        "Terminal session. whoami: Charandeep Kapoor, Product at Delta Exchange, IIT Kanpur. ls ~/shipping: second-brain, Zerodha-MCP-Trading, stocky-ai, openwispr, continuum, claude-code-harness.",
+        "Terminal session. whoami: Charandeep Kapoor, AI × Trading, 2× ex-founder, Product at Delta Exchange, IIT Kanpur. ls ~/shipping: claude-browse, second-brain, Zerodha-MCP-Trading, stocky-ai, openwispr, continuum, claude-code-harness.",
         p,
     )
     C, OUT0, OUT1 = 14.0, 12.6, 13.4
@@ -908,17 +968,17 @@ def terminal(p):
         )
 
     typed(80, 0.4, "whoami")
-    outline(104, 1.7, "Charandeep Kapoor · Product · Delta Exchange", p["fg"])
+    outline(104, 1.7, "Charandeep Kapoor · AI × Trading · 2× ex-founder", p["fg"])
     outline(
         128,
         2.1,
-        "IIT Kanpur · trading systems for crypto and Indian markets",
+        "Product @ Delta Exchange · IIT Kanpur",
         p["muted"],
     )
-    outline(152, 2.5, "local-first tooling for AI coding agents", p["muted"])
+    outline(152, 2.5, "trading systems for crypto and Indian markets · tooling for AI agents", p["muted"])
     typed(184, 3.4, "ls ~/shipping")
     x = X
-    for j, n in enumerate(NAMES[:6]):
+    for j, n in enumerate(NAMES[:7]):
         s.add(
             T(
                 x,
@@ -968,7 +1028,7 @@ def footer(p):
     s = Svg(
         1280,
         64,
-        "Charandeep Kapoor. Product at Delta Exchange. Footer strip with a slow amber scanline.",
+        "Charandeep Kapoor. AI × Trading, 2× ex-founder. Footer strip with a slow amber scanline.",
         p,
     )
     s.defs.append(
@@ -996,7 +1056,7 @@ def footer(p):
         % (p["bg"], p["grid"])
     )
     s.add(T(64, 37, "▲ SirCharan", 12, p["accent"], 700, ls=1.2))
-    s.add(T(176, 37, "Product · Delta Exchange · IIT Kanpur", 12, p["dim"]))
+    s.add(T(176, 37, "AI × Trading · 2× ex-founder · IIT Kanpur", 12, p["dim"]))
     s.add(T(1216, 37, "charandeepkapoor.com", 12, p["muted"], anchor="end"))
     fr = "from{transform:translateX(-760px)}to{transform:translateX(520px)}"
     st = s.anim(fr, 12, "linear")
