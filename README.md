@@ -1,24 +1,20 @@
-<img src="./banner.svg" alt="Charandeep Kapoor — Product at Delta Exchange. Trading systems and local-first AI tooling." width="100%" />
+<a href="https://charandeepkapoor.com"><picture><source media="(prefers-color-scheme: dark)" srcset="assets/hero-dark.svg"><source media="(prefers-color-scheme: light)" srcset="assets/hero-light.svg"><img alt="Charandeep Kapoor. Product at Delta Exchange, IIT Kanpur. Trading systems, memory for AI agents, on-device voice." src="assets/hero-dark.svg" width="100%"></picture></a>
 
-I build two things: systems that trade, and tooling that makes AI coding agents remember what they did.
-Most of it started because I wanted to use it on a Monday morning.
+<a href="https://github.com/SirCharan?tab=repositories"><picture><source media="(prefers-color-scheme: dark)" srcset="assets/terminal-dark.svg"><source media="(prefers-color-scheme: light)" srcset="assets/terminal-light.svg"><img alt="Terminal session: whoami prints the role, ls ~/shipping lists second-brain, Zerodha-MCP-Trading, stocky-ai, openwispr, continuum and claude-code-harness." src="assets/terminal-dark.svg" width="100%"></picture></a>
 
-### Currently shipping
+<a href="https://github.com/SirCharan/second-brain"><picture><source media="(prefers-color-scheme: dark)" srcset="assets/card-second-brain-dark.svg"><source media="(prefers-color-scheme: light)" srcset="assets/card-second-brain-light.svg"><img alt="second-brain: persistent memory for Claude Code. Hooks, a skill and an MCP server over a Markdown vault you own." src="assets/card-second-brain-dark.svg" width="49%"></picture></a>
+<a href="https://github.com/SirCharan/Zerodha-MCP-Trading"><picture><source media="(prefers-color-scheme: dark)" srcset="assets/card-zerodha-dark.svg"><source media="(prefers-color-scheme: light)" srcset="assets/card-zerodha-light.svg"><img alt="Zerodha-MCP-Trading: an MCP server for Zerodha Kite that lets an LLM read market data and place orders on Indian equities and F&amp;O." src="assets/card-zerodha-dark.svg" width="49%"></picture></a>
 
-| Project | What it is | |
-|---|---|---|
-| **[second-brain](https://github.com/SirCharan/second-brain)** | Persistent memory for Claude Code — hooks, skill, MCP server, workflows. A Markdown vault you own, no server and no account. | [site](https://second-brain-web.vercel.app) · Apache-2.0 |
-| **[Zerodha-MCP-Trading](https://github.com/SirCharan/Zerodha-MCP-Trading)** | MCP server for Zerodha's Kite API. Gives an LLM the tools to read market data, run strategies and place orders on Indian equities and F&O. | Python |
-| **[Stocky AI](https://github.com/SirCharan/stocky-ai)** | Trading assistant for Indian markets. Telegram bot over a FastAPI backend, with a six-agent council that argues the research before it answers. | [stockyai.xyz](https://stockyai.xyz) |
-| **[openwispr](https://github.com/SirCharan/openwispr)** | Hold a hotkey, speak, the text lands at your cursor. Whisper runs on the Apple Neural Engine, so no audio leaves the Mac. | Swift · macOS |
-| **[continuum](https://github.com/SirCharan/continuum)** | second-brain with the plugin removed — hooks only, stdlib Python, no dependencies. | MIT |
+<a href="https://github.com/SirCharan/stocky-ai"><picture><source media="(prefers-color-scheme: dark)" srcset="assets/card-stocky-dark.svg"><source media="(prefers-color-scheme: light)" srcset="assets/card-stocky-light.svg"><img alt="stocky-ai: an Indian-markets trading assistant, a Telegram bot plus FastAPI with a six-agent council that debates before it answers." src="assets/card-stocky-dark.svg" width="49%"></picture></a>
+<a href="https://github.com/SirCharan/openwispr"><picture><source media="(prefers-color-scheme: dark)" srcset="assets/card-openwispr-dark.svg"><source media="(prefers-color-scheme: light)" srcset="assets/card-openwispr-light.svg"><img alt="openwispr: on-device macOS dictation in Swift, with Whisper running on the Apple Neural Engine." src="assets/card-openwispr-dark.svg" width="49%"></picture></a>
 
-### The rest of the shelf
+<a href="https://github.com/SirCharan/continuum"><picture><source media="(prefers-color-scheme: dark)" srcset="assets/card-continuum-dark.svg"><source media="(prefers-color-scheme: light)" srcset="assets/card-continuum-light.svg"><img alt="continuum: second-brain as hooks only, stdlib Python, no dependencies." src="assets/card-continuum-dark.svg" width="49%"></picture></a>
+<a href="https://github.com/SirCharan/claude-code-harness"><picture><source media="(prefers-color-scheme: dark)" srcset="assets/card-harness-dark.svg"><source media="(prefers-color-scheme: light)" srcset="assets/card-harness-light.svg"><img alt="claude-code-harness: the Claude Code harness I run, with a lean CLAUDE.md, skills, hooks and slash commands." src="assets/card-harness-dark.svg" width="49%"></picture></a>
 
-Options and futures analytics ([trade-nexus](https://github.com/SirCharan/trade-nexus)), a manga recommender built the way a real feed works — behaviour-tracked, vector-backed ([yomu](https://github.com/SirCharan/yomu)), a BIP39 shard hunter ([seed-hunter](https://github.com/SirCharan/seed-hunter)), and the harness I actually run Claude Code with ([claude-code-harness](https://github.com/SirCharan/claude-code-harness)).
+<p><b>The rest of the shelf.</b> Options and futures analytics (<a href="https://github.com/SirCharan/trade-nexus">trade-nexus</a>), a manga recommender built the way a real feed works, behaviour-tracked and vector-backed (<a href="https://github.com/SirCharan/yomu">yomu</a>), and a BIP39 shard hunter (<a href="https://github.com/SirCharan/seed-hunter">seed-hunter</a>). Most of it started because I wanted to use it on a Monday morning.</p>
 
-Mostly Python and TypeScript, one Swift app, and more Jupyter notebooks than I'd like to admit.
+<a href="https://github.com/SirCharan"><picture><source media="(prefers-color-scheme: dark)" srcset="assets/stats-dark.svg"><source media="(prefers-color-scheme: light)" srcset="assets/stats-light.svg"><img alt="GitHub activity for SirCharan: contributions, languages and recent commits." src="assets/stats-dark.svg" width="100%"></picture></a>
 
-### Elsewhere
+<a href="https://charandeepkapoor.com"><picture><source media="(prefers-color-scheme: dark)" srcset="assets/footer-dark.svg"><source media="(prefers-color-scheme: light)" srcset="assets/footer-light.svg"><img alt="Footer strip with a slow amber scanline." src="assets/footer-dark.svg" width="100%"></picture></a>
 
-[charandeepkapoor.com](https://charandeepkapoor.com) · [@yourasianquant](https://x.com/yourasianquant) · [LinkedIn](https://www.linkedin.com/in/charandeep-kapoor/)
+<p align="center"><a href="https://charandeepkapoor.com">charandeepkapoor.com</a> · <a href="https://x.com/yourasianquant">@yourasianquant</a> · <a href="https://www.linkedin.com/in/charandeep-kapoor/">LinkedIn</a></p>
